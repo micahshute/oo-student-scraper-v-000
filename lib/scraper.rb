@@ -20,13 +20,13 @@ class Scraper
     social_media_types = ["facebook", "twitter", "github", "linkedin"]
     social_media = html.css('div.social-icon-container a').map do |a|
       ref = a['href']
-      site = self.url_type(ref) 
+      site = self.url_type(ref)
       key = social_media_types.include?(site) ? site : "blog"
       {key.to_sym => ref}
     end
     bio = html.css('div.bio-block.details-block div.description-holder p').text
     quote = html.css('div.vitals-text-container div.profile-quote').text
-    binding.pry
+    {bio: bio, profile_quote: quote}.merge(social_media)
   end
 
   def self.url_type(url)
