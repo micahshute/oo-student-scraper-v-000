@@ -10,7 +10,7 @@ class Scraper
     students = student_info.map do |s|
       {name: s.css('div.card-text-continer h4.student-name').text,
       location: s.css('div.card-text-container p.student-location').text,
-      profile_url: s.css('a')['href']
+      profile_url: s.css('a')
       }
     end
     binding.pry
