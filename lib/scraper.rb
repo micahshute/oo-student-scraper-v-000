@@ -22,6 +22,7 @@ class Scraper
 
   def self.url_type(url)
     beginning = url.split(".")[0]
+    binding.pry
     domain = beginning.split("//")[1]
     domain.split(".").last
   end
