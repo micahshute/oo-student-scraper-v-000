@@ -19,7 +19,7 @@ class Scraper
     html = Nokogiri::HTML(open(profile_url))
     social_media = html.css('div.social-icon-container')
     bio = html.css('div.bio-block.details-block div.description-holder p').text
-    quote = html.css('div.vitals-text-container div.profile-quote').text
+    quote = html.css('div.vitals-container div.profile-quote').text
     binding.pry
   end
 
@@ -30,4 +30,3 @@ class Scraper
   end
 
 end
-
