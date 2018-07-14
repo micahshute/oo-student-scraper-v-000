@@ -23,10 +23,9 @@ class Scraper
   def self.url_type(url)
     beginning = url.split(".com")[0]
     domain = beginning.split("//").last
-    binding.pry
     domain.split(".").last
   end
 
 end
 
-Scraper.url_type("www.linkedin.com")
+puts Scraper.url_type("www.linkedin.com")
