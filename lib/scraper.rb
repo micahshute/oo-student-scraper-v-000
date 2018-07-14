@@ -17,7 +17,7 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     html = Nokogiri::HTML(open(profile_url))
-    social_media = html.css('div.social-icon-container a').map do |a| 
+    social_media = html.css('div.social-icon-container a').map do |a|
       ref = a['href']
       {self.url_type(ref).to_sym => ref}
     end
