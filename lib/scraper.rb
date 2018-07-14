@@ -17,7 +17,10 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     html = Nokogiri::HTML(open(profile_url))
-    student_info = html.css()
+    social_media = html.css('div.social-icon-container')
+    bio = html.css('div.bio-block.details-block div.description-holder p').text
+    quote = html.css('div.vitals-text-container div.profile-quote').text
+    binding.pry
   end
 
   def self.url_type(url)
@@ -28,4 +31,3 @@ class Scraper
 
 end
 
-puts Scraper.url_type("https://github.com/person")
