@@ -28,4 +28,4 @@ class Scraper
 
 end
 
-puts Scraper.url_type("www.linkedin.com")
+puts Scraper.url_type("https://www.linkedin.com")
