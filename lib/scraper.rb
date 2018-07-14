@@ -16,7 +16,16 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
+    html = Nokogiri::HTML(open(profile_url))
+    student_info = html.css()
+  end
 
+  def self.url_type(url)
+    beginning = url.split(".")[0]
+    domain = beginning.split("//")[1]
+    domain.split(".").last
   end
 
 end
+
+Scraper.url_type("www.linkedin.com")
